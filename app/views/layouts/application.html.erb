@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Seat</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<% if flash[:error] -%>
+  <h3 id="flash-error" style="margin:0 auto; color:#ff0000;"><%= flash[:error] %> <%= link_to_function 'Close', visual_effect(:fade, 'flash-error') %></h3>
+<% end -%>
+<% if flash[:success] -%>
+    <h3 id="flash-success" style="margin:0 auto; color:#22aa00;"><%= flash[:success] %> <%= link_to_function 'Close', visual_effect(:fade, 'flash-success') %></h3>
+<% end -%>
+
+
+<%= yield %>
+
+</body>
+</html>

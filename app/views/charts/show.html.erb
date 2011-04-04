@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>Seating Chart</p>
+
+<p>
+   <b>User ID:</b>
+   <%= @chart.user_id %>
+</p>
+<p>
+   <b>Seat:</b>
+   <%= @chart.seat %>
+</p>
+
+<%= link_to 'Edit', edit_chart_path(@chart) %> |
+<%= link_to 'Back', charts_path %>

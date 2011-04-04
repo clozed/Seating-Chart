@@ -1,0 +1,29 @@
+<div id="container">
+	<h1>Seating chart</h1>
+	<p>
+		<%= link_to "Logout", logout_path unless !session[:user_id]%>
+		<%= link_to "Login", login_path unless session[:user_id]%>
+		<%= link_to "Register", register_path unless session[:user_id]%>
+	</p>
+	<h3>Click a seat to change to it!</h3>
+
+	<div>
+	<% align = "right" %>
+	<% @charts.each_with_index do |chart, index| %>
+		<% if index%4 == 0 %>
+		</div>
+			<% if align == "left" %>
+			<% align = "right" %>
+			<% elsif align = "left" %>
+			<% end %>
+		<div class="row" style="float:<%=align%>">
+		<% end %>
+		<a href="<%=root_path + chart.seat.to_s%>" class="seat">
+			<p>
+				Seat: <%=chart.seat%><br />
+				User: <%=chart.username%><br />
+			</p>
+		</a>
+	<% end %>
+	</div>
+<div style="clear:both;"></div>
