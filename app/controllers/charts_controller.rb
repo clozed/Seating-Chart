@@ -27,7 +27,7 @@ class ChartsController < ApplicationController
     end
 
     # Get all seats in the chart
-    @charts = Chart.all
+    @charts = Chart.find(:all, :order => "seat ASC")
     @charts.each_with_index do |seat, index|
 	if seat.user_id != nil
 		@charts[index].username = User.first(:conditions => {:id=>seat.user_id}).username
